@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AidensPlugin:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/AidensPlugin_jar</output-path>
+    <root id="archive" name="AidensPlugin.jar">
+      <element id="module-output" name="AidensPlugin" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/Minecraft-Plugining/spigot-api-1.12.2-R0.1-20180712.012057-156.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

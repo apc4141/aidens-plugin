@@ -1,0 +1,35 @@
+name: AidensPlugin
+version: 1.0
+author: Atomic Pixels
+main: aidensplugin.Main
+api: 1.12.2
+
+commands:
+  heal:
+    description: Heals the player fully
+    usage: /heal [player]
+    permission: aidensplugin.heal
+    permission-message: You do not have permission to use that command.
+  feed:
+    description: Feeds the player fully
+    usage: /feed [player]
+    permission: aidensplugin.feed
+    permission-message: You do not have permission to use that command.
+  give-thunderstick:
+    description: Gives designated player the Thunder Stick
+    usage: /give-thunderstick [player]
+    aliases: [give-ts]
+    permission: aidensplugin.give-ts
+    permission-message: You do not have permission to use that command.
+  give-mechanicalboots:
+    description: Gives designated player Mechanical Boots
+    usage: /give-mechanicalboots [player]
+    aliases: [give-mb]
+    permission: aidensplugin.give-mb
+    permission-message: You do not have permission to use that command.
+  give-enderbow:
+    description: Gives designated player Ender Bow
+    usage: /give-enderbow [player]
+    aliases: [ give-eb ]
+    permission: aidensplugin.give-eb
+    permission-message: You do not have permission to use that command.
