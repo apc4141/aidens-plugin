@@ -15,6 +15,7 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new TripleJumper(), this);
         getServer().getPluginManager().registerEvents(new EnderBowEvents(this), this);
         getServer().getPluginManager().registerEvents(new PlayerRightClickedEvent(), this);
+        getServer().getPluginManager().registerEvents(new EnchantedGemEvent(), this);
 
         //Heal player command
         this.getCommand("heal").setExecutor(new HealCommand(this));
@@ -29,5 +30,17 @@ public class Main extends JavaPlugin {
 
         //Ender bow command
         this.getCommand("give-enderbow").setExecutor(new GiveEnderBowCommand(this));
+
+        //Flynn stick command
+        this.getCommand("give-flynnstick").setExecutor(new GiveFlynnStickCommand(this));
+
+        //Flynn stick command
+        this.getCommand("give-enchantedgem").setExecutor(new GiveEnchantedGemCommand(this));
+    }
+
+    @Override
+    public void onLoad()
+    {
+        //NBTInjector.inject();
     }
 }

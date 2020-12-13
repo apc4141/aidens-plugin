@@ -24,6 +24,9 @@ public class PlayerRightClickedEvent implements Listener
     public static final int CHANCE_TO_DAMAGE = 22;
     private static final long THUNDER_STICK_DELAY = 5000;
 
+    //Flynn stick delay
+    private static final long FLYNN_STICK_DELAY = 7000;
+
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerUse(PlayerInteractEvent event)
     {
@@ -69,6 +72,20 @@ public class PlayerRightClickedEvent implements Listener
                 player.damage(1);
 
                 player.setFireTicks(0);
+            }
+        }
+
+        //TEST FOR FLYNN STICK CASE
+        if (CustomMetaManager.hasTag(handItem, "Flynn Stick", "True")) {
+            long ptime = CustomMetaManager.getData(handItem, "Flynn Stick Timer");
+            long systime = System.currentTimeMillis();
+            if(systime - ptime > FLYNN_STICK_DELAY) {
+                player.setItemInHand(CustomMetaManager.setData(handItem, "Flynn Stick Timer", systime));
+
+                Player flynn = Bukkit.getPlayer("MooseGames23");
+                if(flynn!=null){
+                    CustomWorldManager.strikeLightning(flynn);
+                }
             }
         }
 

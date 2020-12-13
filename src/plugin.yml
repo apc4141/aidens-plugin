@@ -33,3 +33,15 @@ commands:
     aliases: [ give-eb ]
     permission: aidensplugin.give-eb
     permission-message: You do not have permission to use that command.
+  give-flynnstick:
+    description: Gives designated player the Flynn Stick
+    usage: /give-flynnstick [player]
+    aliases: [ give-fs ]
+    permission: aidensplugin.give-fs
+    permission-message: You do not have permission to use that command.
+  give-enchantedgem:
+    description: Gives designated player an Enchanted Gem
+    usage: /give-enchantedgem [player] <amount>
+    aliases: [ give-eg ]
+    permission: aidensplugin.give-eg
+    permission-message: You do not have permission to use that command.

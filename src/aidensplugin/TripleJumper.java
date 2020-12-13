@@ -30,11 +30,16 @@ public class TripleJumper implements Listener {
     public void onPlayerMove(PlayerMoveEvent event) {
         Player player = event.getPlayer();
         ItemStack playerBoots = player.getInventory().getBoots();
-        if(CustomMetaManager.hasTag(playerBoots, "Mechanical Boots", "True")) {
-            if ((player.getGameMode() != GameMode.CREATIVE) &&
-                    (player.getLocation().subtract(0, 1, 0).getBlock().getType() != Material.AIR) &&
-                    !player.isFlying()) {
-                player.setAllowFlight(true);
+        if((player.getGameMode() != GameMode.CREATIVE)) {
+            if (CustomMetaManager.hasTag(playerBoots, "Mechanical Boots", "True")) {
+                if ((player.getGameMode() != GameMode.CREATIVE) &&
+                        (player.getLocation().subtract(0, 1, 0).getBlock().getType() != Material.AIR) &&
+                        !player.isFlying()) {
+                    player.setAllowFlight(true);
+                }
+            } else
+            {
+                player.setAllowFlight(false);
             }
         }
     }
