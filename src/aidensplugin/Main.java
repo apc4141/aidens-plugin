@@ -1,6 +1,10 @@
 package aidensplugin;
 
-import org.bukkit.Bukkit;
+import aidensplugin.commands.*;
+import aidensplugin.items.base.CustomMetaManager;
+import aidensplugin.items.base.MaterialHelper;
+import aidensplugin.items.base.MinersGemBlockWhiteList;
+import aidensplugin.items.listener.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -9,13 +13,18 @@ public class Main extends JavaPlugin {
     public void onEnable()
     {
         //init everything important
-        CustomMetaManager.init();
+        CustomMetaManager.init(this);
+        MinersGemBlockWhiteList.init();
+        MaterialHelper.init();
+        CraftCommand.init();
 
         //Register event handlers
-        getServer().getPluginManager().registerEvents(new TripleJumper(), this);
-        getServer().getPluginManager().registerEvents(new EnderBowEvents(this), this);
-        getServer().getPluginManager().registerEvents(new PlayerRightClickedEvent(), this);
-        getServer().getPluginManager().registerEvents(new EnchantedGemEvent(), this);
+        getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
+        getServer().getPluginManager().registerEvents(new EnderBowListener(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerRightClickedListener(), this);
+        getServer().getPluginManager().registerEvents(new EnchantedGemListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
+        getServer().getPluginManager().registerEvents(new ItemDurabilityListener(), this);
 
         //Heal player command
         this.getCommand("heal").setExecutor(new HealCommand(this));
@@ -34,13 +43,24 @@ public class Main extends JavaPlugin {
         //Flynn stick command
         this.getCommand("give-flynnstick").setExecutor(new GiveFlynnStickCommand(this));
 
-        //Flynn stick command
+        //Enchanted gem command
         this.getCommand("give-enchantedgem").setExecutor(new GiveEnchantedGemCommand(this));
-    }
 
-    @Override
-    public void onLoad()
-    {
-        //NBTInjector.inject();
+        //Miners gem command
+        this.getCommand("give-minersgem").setExecutor(new GiveMinersGemCommand(this));
+
+        //Infinite hot snowball command
+        this.getCommand("give-infinitehotsnowball").setExecutor(new GiveIHotSnowballCommand(this));
+
+        //Caving flower command
+        this.getCommand("give-cavingflower").setExecutor(new GiveCavingFlowerCommand(this));
+
+        //Escape flower command
+        this.getCommand("give-fishhelm").setExecutor(new GiveFishHelmCommand(this));
+
+        //General command
+        this.getCommand("craft").setExecutor(new CraftCommand());
+        this.getCommand("craft").setTabCompleter(new CraftCommandCompleter());
+        this.getCommand("extract").setExecutor(new ExtractCommand());
     }
 }

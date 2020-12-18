@@ -2,7 +2,7 @@ name: AidensPlugin
 version: 1.0
 author: Atomic Pixels
 main: aidensplugin.Main
-api: 1.12.2
+api-version: 1.16
 
 commands:
   heal:
@@ -44,4 +44,40 @@ commands:
     usage: /give-enchantedgem [player] <amount>
     aliases: [ give-eg ]
     permission: aidensplugin.give-eg
+    permission-message: You do not have permission to use that command.
+  give-minersgem:
+    description: Gives designated player a Miners Gem
+    usage: /give-minersgem [player] <amount>
+    aliases: [ give-mg ]
+    permission: aidensplugin.give-mg
+    permission-message: You do not have permission to use that command.
+  give-infinitehotsnowball:
+    description: Gives designated player a Infinite Hot Snowball
+    usage: /give-infinitehotsnowball [player] <amount>
+    aliases: [ give-ihs ]
+    permission: aidensplugin.give-ihs
+    permission-message: You do not have permission to use that command.
+  give-cavingflower:
+    description: Gives designated player caving Flower
+    usage: /give-cavingflower [player] <amount>
+    aliases: [ give-cf ]
+    permission: aidensplugin.give-cf
+    permission-message: You do not have permission to use that command.
+  give-fishhelm:
+    description: Gives designated player Fish Helm
+    usage: /give-fishhelm [player] <amount>
+    aliases: [ give-fh ]
+    permission: aidensplugin.give-fh
+    permission-message: You do not have permission to use that command.
+  craft:
+    description: Craft designated item in specified amount
+    usage: /craft <item> <amount>
+    aliases: [ cft ]
+    permission: aidensplugin.craft
+    permission-message: You do not have permission to use that command.
+  extract:
+    description: Skill that allows you to extract enchanted books from an item.
+    usage: /extract
+    aliases: [ ee ]
+    permission: aidensplugin.extract
     permission-message: You do not have permission to use that command.
